@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  datascience-notebook:
+        build: .
+        image: jupyter/datascience-notebook
+        working_dir: /home/jason/
+        user: root
+        volumes:
+            - ./notebooks:/home/jason/
+        environment:
+            - NB_USER=jason
+            - CHOWN_HOME=yes
+            - CHOWN_HOME_OPTS=-R
+        ports:
+            - "8888:8888"
